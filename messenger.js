@@ -1,7 +1,7 @@
-var FBMessenger = require('fb-messenger')
-var messenger = new FBMessenger('EAAEcEkKVmnIBAORKWxp0nQh9ZACPidqF80f4gPnNfHT4CpY5plHnnMCHhll29szbtQynK2wyIND3P2MiPfDX5A267cMD9aWc0mih7fFneknBqvpOUOvjZCgFBsoUrorCgH6ZBxI4eRD6Q1lwSAQD20AMwabphBqMWzATmxHDAZDZD')
+var FBMessenger = require('fb-messenger');
+var messenger = new FBMessenger('EAACXZB4I0ilMBALixoOmi8ZBvJOFedZCREJcZAavo5q91KBwsc19ngPftSdTiTRcZA8R9eGCgQNFx1Xz0AiTF2fUGpAvZA9M0tlzDlQW3KpXoD1Jy5Q0OaI3raYkGktd2mVP7a5wVZBKKb91BevdPc3Qr4GJb5npQbm8Rp1kerecgZDZD');
 
 messenger.sendTextMessage('8050582590', 'Hello', function (err, body) {
-  if(err) return console.error(err)
-  console.log(body)
+  if(err) return console.error(err);
+  console.log(body);
 })
