@@ -6,7 +6,6 @@
 "scripts": {
     "start": "node messenger.js"
 },    
-{
   "dependencies": {
     "apiai": "^2.0.7",
     "body-parser": "^1.15.2",
@@ -15,5 +14,4 @@
     "mongodb": "^2.2.10",
     "twilio": "^2.11.0"
   }
-}
 }
