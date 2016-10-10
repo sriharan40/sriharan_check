@@ -1,6 +1,4 @@
 var express = require('express');
-var bodyParser = require('body-parser');
-var request = require("request");
 var FBMessenger = require('fb-messenger');
 
 var app = express();
@@ -10,7 +8,6 @@ var token = "EAACXZB4I0ilMBALixoOmi8ZBvJOFedZCREJcZAavo5q91KBwsc19ngPftSdTiTRcZA
 var sender = "8050582590";
 var text = "Hello";
 
-function sendTextMessage(sender, text) {
   messageData = {
     text:text
   }
@@ -29,4 +26,3 @@ function sendTextMessage(sender, text) {
       console.log('Error: ', response.body.error);
     }
   });
-}
