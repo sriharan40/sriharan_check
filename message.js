@@ -9,8 +9,6 @@ var token = "EAACXZB4I0ilMBALixoOmi8ZBvJOFedZCREJcZAavo5q91KBwsc19ngPftSdTiTRcZA
 var sender = "8050582590";
 var text = "Hello";
 
-console.log(sendTextMessage(sender, text));
-
 sendTextMessage(sender, text);
 
 function sendTextMessage(sender, text) {
