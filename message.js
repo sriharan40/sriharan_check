@@ -1,5 +1,6 @@
 var express = require('express');
 var FBMessenger = require('fb-messenger');
+var request = require("request");
 
 var app = express();
 
@@ -15,7 +16,7 @@ sendTextMessage(sender, text);
 function sendTextMessage(sender, text) {
   messageData = {
     text:text
-  };
+  }
   request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
       qs: {access_token:token},
