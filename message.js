@@ -6,9 +6,9 @@ var FBMessenger = require('fb-messenger');
 
 var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
 // +639178313417  639178483863
-var sender = "+639173255686";
+var sender = "+35797791799";
 //var sender = "himant.gupta";
-var text = "Auto message on your number 9173255686";
+var text = "Auto message on your number +357-97791799";
 
 sendTextMessage(sender, text);
 
