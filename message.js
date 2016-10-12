@@ -4,9 +4,9 @@ var request = require("request");
 var FBMessenger = require('fb-messenger');
 
 
-var token = "EAACXZB4I0ilMBALixoOmi8ZBvJOFedZCREJcZAavo5q91KBwsc19ngPftSdTiTRcZA8R9eGCgQNFx1Xz0AiTF2fUGpAvZA9M0tlzDlQW3KpXoD1Jy5Q0OaI3raYkGktd2mVP7a5wVZBKKb91BevdPc3Qr4GJb5npQbm8Rp1kerecgZDZD";
+var token = "EAACXZB4I0ilMBAL53eWQ4vhvZCl51ZAS26XsAqilG9fZAZBMlBZAEFQcnbvsskgLF71mGRHEa62u5oyRvxOhSCuEKbDfixGPI17ENgWxXB34siroI1w29RAhpiV6u2gdm3CYwiXGF7SIZAPeeitZC6ae1hz6ZCdZAInZAMCD3tix3lImQZDZD";
 
-var sender = "8050582590";
+var sender = "himant.gupta";
 var text = "Hello";
 
 sendTextMessage(sender, text);
