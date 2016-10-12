@@ -29,8 +29,13 @@ response.setHeader('Content-Type', 'application/json');
         "displayText": speech,	     
         "source": "apiai-Himant-message sample"
     };
+
+messenger.sendTextMessage(sender, text, function (err, body) {
+  if(err) return console.error(err);
+  console.log(body);
+})
 	
-sendTextMessage(sender, text);
+/* sendTextMessage(sender, text);
 
 function sendTextMessage(sender, text) {
   messageData = {
@@ -51,7 +56,7 @@ function sendTextMessage(sender, text) {
       console.log('Error: ', response.body.error);
     }
   });
-}
+} */
 
     response.write(JSON.stringify(responseBody));
     response.end();
