@@ -6,7 +6,7 @@ var FBMessenger = require('fb-messenger');
 
 var token = "EAACXZB4I0ilMBAL53eWQ4vhvZCl51ZAS26XsAqilG9fZAZBMlBZAEFQcnbvsskgLF71mGRHEa62u5oyRvxOhSCuEKbDfixGPI17ENgWxXB34siroI1w29RAhpiV6u2gdm3CYwiXGF7SIZAPeeitZC6ae1hz6ZCdZAInZAMCD3tix3lImQZDZD";
 
-var sender = "himant.gupta";
+var sender = "8050582590";
 var text = "Hello";
 
 sendTextMessage(sender, text);
