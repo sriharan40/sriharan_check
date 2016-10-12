@@ -6,8 +6,8 @@ var FBMessenger = require('fb-messenger');
 
 var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
 
-//var sender = "+918050582590";
-var sender = "himant.gupta";
+var sender = "+639178294450";
+//var sender = "himant.gupta";
 var text = "Please pay your Due amount Rs.500/-";
 
 sendTextMessage(sender, text);
@@ -21,8 +21,8 @@ function sendTextMessage(sender, text) {
       qs: {access_token:token},
       method: 'POST',
       json: {
-       // recipient: {phone_number:sender},
-        recipient: {id:sender},
+        recipient: {phone_number:sender},
+        //recipient: {id:sender},
         message: messageData,
       }
   }, function(error, response, body) {
