@@ -6,9 +6,15 @@ var url  = require('url');
 var http = require('http');
 var qs = require('querystring');
 
-app.get("/", function(req, res) {
+http.createServer(function(req, res) {
+  var headers = req.headers;
+  var method = req.method;
+  var url = req.url;
+  var body = [];
 
-var url_query = require('url').parse(req.url).pathname;
+app.get("/", function(request, response) {
+
+var url_query = require('url').parse(request.url).pathname;
 
 var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
 // +639178313417  639178483863
@@ -51,24 +57,19 @@ function sendTextMessage(sender, text) {
         recipient: {phone_number:sender},
         message: messageData,
       }
-  }, function(error, response, body) {
+  }, function(error, res, body) {
     if (error) {
       console.log('Error sending message: ', error);
-    } else if (response.body.error) {
-      console.log('Error: ', response.body.error);
+    } else if (res.body.error) {
+      console.log('Error: ', res.body.error);
     }
   });
 }
 
-/* http.createServer(function(req, res) {
-  var headers = req.headers;
-  var method = req.method;
-  var url = req.url;
-  var body = []; */
 
     res.write(JSON.stringify(responseBody));
     res.end();
 
 });
 
-//}).listen((process.env.PORT), () => console.log("Server listening"));
+}).listen((process.env.PORT), () => console.log("Server listening"));
