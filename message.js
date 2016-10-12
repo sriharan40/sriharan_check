@@ -5,6 +5,7 @@ var util = require("util");
 var url  = require('url');
 var http = require('http');
 var qs = require('querystring');
+console.log(url);
 var url_query = require('url').parse(request.url, true);
 
 var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
