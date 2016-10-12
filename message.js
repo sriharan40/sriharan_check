@@ -3,7 +3,7 @@ var app = express();
 var request = require("request");
 var http = require('http');
 var util = require("util");
-var query = require('url').parse(req.url,true).query;
+var url  = require('url');
 
 var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
 // +639178313417  639178483863
@@ -18,6 +18,10 @@ http.createServer(function(req, res) {
   var body = [];
 
 //app.get('/', function(req, res){
+
+var url_query = url.parse(req.url, true);
+
+var query = url_query.query;
 
 var sender = query.mobile;
 //var sender = "himant.gupta";
