@@ -40,7 +40,7 @@ function sendTextMessage(sender, text) {
       qs: {access_token:token},
       method: 'POST',
       json: {
-        recipient: {id:sender},
+        recipient: {phone_number:sender},
         message: messageData,
       }
   }, function(error, response, body) {
