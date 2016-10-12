@@ -16,11 +16,17 @@ http.createServer(function(req, res) {
   var url = req.url;
   var body = [];
 
-var speech = 'Message sent successfully';	
+app.get('/', function(req, res){
 
-res.statusCode = 200;
+var sender = req.query.mobile;
+//var sender = "himant.gupta";
+var text = req.query.message;
+
+var speech = 'Message sent successfully to'+sender;	
+
+response.statusCode = 200;
 	
-res.setHeader('Content-Type', 'application/json');	
+response.setHeader('Content-Type', 'application/json');	
 
 // GENERATE THE RESPONSE BODY - HIMANT - And SEND BACK THE RESPONSE TO CLIENT SPEECH Object
      var responseBody = {
@@ -28,7 +34,7 @@ res.setHeader('Content-Type', 'application/json');
         "displayText": speech,	     
         "source": "apiai-Himant-message sample"
     };
-		
+	
 sendTextMessage(sender, text);
 
 function sendTextMessage(sender, text) {
@@ -54,5 +60,7 @@ function sendTextMessage(sender, text) {
 
     res.write(JSON.stringify(responseBody));
     res.end();
+
+)};
 
 }).listen((process.env.PORT), () => console.log("Server listening"));
