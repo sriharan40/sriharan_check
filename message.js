@@ -1,13 +1,10 @@
 var express = require('express');
 var app = express();
+var request = require("request");
 var http = require('http');
 var util = require("util");
-var request = require("request");
-var FBMessenger = require('fb-messenger');
 
-var messenger = new FBMessenger('EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD');
-
-//var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
+var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
 // +639178313417  639178483863
 var sender = "+918050582590";
 //var sender = "himant.gupta";
@@ -31,13 +28,8 @@ response.setHeader('Content-Type', 'application/json');
         "displayText": speech,	     
         "source": "apiai-Himant-message sample"
     };
-	
-messenger.sendTextMessage(sender, text, function (err, body) {
-  if(err) return console.error(err);
-  console.log(body);
-})
-	
-/* sendTextMessage(sender, text);
+		
+sendTextMessage(sender, text);
 
 function sendTextMessage(sender, text) {
   messageData = {
@@ -58,7 +50,7 @@ function sendTextMessage(sender, text) {
       console.log('Error: ', response.body.error);
     }
   });
-} */
+}
 
     response.write(JSON.stringify(responseBody));
     response.end();
