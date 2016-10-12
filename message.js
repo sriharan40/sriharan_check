@@ -10,17 +10,17 @@ var sender = "+918050582590";
 //var sender = "himant.gupta";
 var text = "Auto message on your number +91 8050582590";
 
-http.createServer(function(request, response) {
-  var headers = request.headers;
-  var method = request.method;
-  var url = request.url;
+http.createServer(function(req, res) {
+  var headers = req.headers;
+  var method = req.method;
+  var url = req.url;
   var body = [];
 
 var speech = 'Message sent successfully';	
 
-response.statusCode = 200;
+res.statusCode = 200;
 	
-response.setHeader('Content-Type', 'application/json');	
+res.setHeader('Content-Type', 'application/json');	
 
 // GENERATE THE RESPONSE BODY - HIMANT - And SEND BACK THE RESPONSE TO CLIENT SPEECH Object
      var responseBody = {
@@ -52,7 +52,7 @@ function sendTextMessage(sender, text) {
   });
 }
 
-    response.write(JSON.stringify(responseBody));
-    response.end();
+    res.write(JSON.stringify(responseBody));
+    res.end();
 
 }).listen((process.env.PORT), () => console.log("Server listening"));
