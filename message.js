@@ -69,6 +69,6 @@ function sendTextMessage(sender, text) {
     res.write(JSON.stringify(responseBody));
     res.end();
 
-//});
+});
 
 //}).listen((process.env.PORT), () => console.log("Server listening"));
