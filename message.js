@@ -5,20 +5,16 @@ var util = require("util");
 var url  = require('url');
 var http = require('http');
 var qs = require('querystring');
-console.log(url);
-var url_query = require('url').parse(request.url, true);
+
+app.get("/", function(req, res) {
+
+var url_query = require('url').parse(req.url).pathname;
 
 var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
 // +639178313417  639178483863
 var sender = "+918050582590";
 //var sender = "himant.gupta";
 var text = "Auto message on your number +91 8050582590";
-
-http.createServer(function(req, res) {
-  var headers = req.headers;
-  var method = req.method;
-  var url = req.url;
-  var body = [];
 
 //app.get('/', function(req, res){
 
@@ -64,9 +60,15 @@ function sendTextMessage(sender, text) {
   });
 }
 
+/* http.createServer(function(req, res) {
+  var headers = req.headers;
+  var method = req.method;
+  var url = req.url;
+  var body = []; */
+
     res.write(JSON.stringify(responseBody));
     res.end();
 
 //});
 
-}).listen((process.env.PORT), () => console.log("Server listening"));
+//}).listen((process.env.PORT), () => console.log("Server listening"));
