@@ -16,7 +16,7 @@ http.createServer(function(req, res) {
   var url = req.url;
   var body = [];
 
-app.get('/', function(req, res){
+//app.get('/', function(req, res){
 
 var sender = req.query.mobile;
 //var sender = "himant.gupta";
@@ -61,6 +61,6 @@ function sendTextMessage(sender, text) {
     res.write(JSON.stringify(responseBody));
     res.end();
 
-});
+//});
 
 }).listen((process.env.PORT), () => console.log("Server listening"));
