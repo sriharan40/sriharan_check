@@ -49,8 +49,9 @@ var text = req.params.message;
 if(sender && text)
 {	
 var speech = sendTextMessage(sender, text);
-if(speech == "" || speech == "undefined")
+if(speech == "undefined")
 {
+//var speech = 'Error sending message to '+sender;
 var speech = 'Message sent successfully to '+sender;				
 }
 console.log(speech);
@@ -74,10 +75,10 @@ function sendTextMessage(sender, text) {
       console.log('Error sending message: ', error);
     } else if (res.body.error) {
       console.log('Error: ', res.body.error);
-    }
   	  var speech = 'Error sending message to '+sender;
 	  return speech;
       exit;
+	  }
 	  });
 }
 
