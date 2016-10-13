@@ -44,13 +44,16 @@ var sender = req.params.mobile;
 
 var text = req.params.message;
 
-var speech = 'Message sent successfully to '+sender;			
+//var speech = 'Message sent successfully to '+sender;			
 	
 var speech = sendTextMessage(sender, text);
 
 console.log(speech);
 
 function sendTextMessage(sender, text) {
+
+var speech = 'Message sent successfully to '+sender;			
+
   messageData = {
     text:text
   }
@@ -72,8 +75,8 @@ function sendTextMessage(sender, text) {
 	  var speech = res.body.error;
 	  return speech;
     }
-	return speech;
   });
+	return speech;
 }
 
 res.statusCode = 200;
