@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();
 var request = require("request");
 var util = require("util");
-var url  = require('url');
+//var url  = require('url');
 var http = require('http');
-var qs = require('querystring');
+//var qs = require('querystring');
 
 var params=function(req){
   var q=req.url.split('?'),result={};
@@ -28,7 +28,7 @@ http.createServer(function(req, res) {
 
 req.params=params(req);
 
-var url_query = require('url').parse(request.url).pathname;
+//var url_query = require('url').parse(request.url).pathname;
 
 var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81UZA6W3C4wZAZBf9z4l88RKEacF7zg65NWyGoBr4b6vmLoTLQuUXlBSI21IohuSU4G0AyJ12F5037LBNndmXotz9xZAq2p3GVZBcNmyIcgZDZD";
 // +639178313417  639178483863
