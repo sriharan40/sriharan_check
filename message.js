@@ -51,8 +51,8 @@ if(sender && text)
 var speech = sendTextMessage(sender, text);
 if(speech == "undefined" || speech == "null" || speech == "" || speech == undefined)
 {
-var speech = 'Error sending message to '+sender;
-//var speech = 'Message sent successfully to '+sender;				
+//var speech = 'Error sending message to '+sender;
+var speech = 'Message sent successfully to '+sender;				
 }
 console.log(speech);
 }
@@ -73,17 +73,11 @@ function sendTextMessage(sender, text) {
   }, function(error, res, body) {
     if (error) {
       console.log('Error sending message: ', error);
-  	  var speech = 'Error sending message to '+sender;
-	  return speech;
-	  exit;
+	  return error;
     } else if (res.body.error) {
       console.log('Error: ', res.body.error);
-  	  var speech = 'Error sending message to '+sender;
-	  return speech;
-      exit;
+	  return error;
 	  }
-      var speech = 'Message sent successfully to '+sender;				
-	  return speech;
 	  });
 	  }
 
