@@ -46,7 +46,7 @@ var text = req.params.message;
 
 var speech = 'Message sent successfully to '+sender;			
 	
-sendTextMessage(sender, text);
+var speech = sendTextMessage(sender, text);
 
 function sendTextMessage(sender, text) {
   messageData = {
@@ -64,12 +64,15 @@ function sendTextMessage(sender, text) {
     if (error) {
       console.log('Error sending message: ', error);
 	  var speech = error;
+	  return speech;
     } else if (res.body.error) {
       console.log('Error: ', res.body.error);
 	  var speech = res.body.error;
+	  return speech;
     }
 	else{
       var speech = 'Message sent successfully to '+sender;			
+	  return speech;
 	}
   });
 }
