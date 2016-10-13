@@ -73,19 +73,19 @@ function sendTextMessage(sender, text) {
   }, function(error, res, body) {
     if (error) {
       console.log('Error sending message: ', error);
+  	  var speech = 'Error sending message to '+sender;
+	  return speech;
+	  exit;
     } else if (res.body.error) {
       console.log('Error: ', res.body.error);
   	  var speech = 'Error sending message to '+sender;
 	  return speech;
       exit;
 	  }
-	  else{
       var speech = 'Message sent successfully to '+sender;				
 	  return speech;
-      exit;		  
-	  }
 	  });
-}
+	  }
 
 res.statusCode = 200;
 	
