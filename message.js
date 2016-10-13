@@ -48,13 +48,7 @@ var text = req.params.message;
 
 if(sender && text)
 {	
-var speech = sendTextMessage(sender, text);
-if(speech == "undefined" || speech == "null" || speech == "" || speech == undefined)
-{
-//var speech = 'Error sending message to '+sender;
-var speech = 'Message sent successfully to '+sender;				
-}
-console.log(speech);
+sendTextMessage(sender, text);
 }
 
 function sendTextMessage(sender, text) {
@@ -73,17 +67,44 @@ function sendTextMessage(sender, text) {
   }, function(error, res, body) {
     if (error) {
       console.log('Error sending message: ', error);
-	  return error;
+
+	  res.statusCode = 200;
+			
+      res.setHeader('Content-Type', 'application/json');	
+
+// GENERATE THE RESPONSE BODY - HIMANT - And SEND BACK THE RESPONSE TO CLIENT SPEECH Object
+     var responseBody = {
+        "speech": error,
+        "displayText": error,	     
+        "source": "apiai-Himant-message sample"
+    };
+
+    res.write(JSON.stringify(responseBody));
+    res.end();
+
     } else if (res.body.error) {
       console.log('Error: ', res.body.error);
-	  return error;
-	  }
-	  });
-	  }
 
-res.statusCode = 200;
-	
-res.setHeader('Content-Type', 'application/json');	
+	  res.statusCode = 200;
+			
+      res.setHeader('Content-Type', 'application/json');	
+
+// GENERATE THE RESPONSE BODY - HIMANT - And SEND BACK THE RESPONSE TO CLIENT SPEECH Object
+     var responseBody = {
+        "speech": res.body.error,
+        "displayText": res.body.error,	     
+        "source": "apiai-Himant-message sample"
+    };
+
+    res.write(JSON.stringify(responseBody));
+    res.end();
+	  }
+	else{
+	  var speech = 'Message sent successfully to '+sender;				
+		
+	  res.statusCode = 200;
+			
+      res.setHeader('Content-Type', 'application/json');	
 
 // GENERATE THE RESPONSE BODY - HIMANT - And SEND BACK THE RESPONSE TO CLIENT SPEECH Object
      var responseBody = {
@@ -93,7 +114,9 @@ res.setHeader('Content-Type', 'application/json');
     };
 
     res.write(JSON.stringify(responseBody));
-    res.end();
-
+    res.end();	
+	}  
+	  });
+	  }
 
 }).listen((process.env.PORT), () => console.log("Server listening"));
