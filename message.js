@@ -7,7 +7,7 @@ var http = require('http');
 var qs = require('querystring');
 
 var params=function(req){
-  let q=req.url.split('?'),result={};
+  var q=req.url.split('?'),result={};
   if(q.length>=2){
       q[1].split('&').forEach((item)=>{
            try {
