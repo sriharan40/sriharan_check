@@ -44,7 +44,7 @@ var sender = req.params.mobile;
 //var sender = "himant.gupta";
 var text = req.params.message;
 
-var speech = 'Message sent successfully to'+sender;	
+var speech = 'Message sent successfully to '+sender;	
 
 res.statusCode = 200;
 	
