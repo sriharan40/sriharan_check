@@ -43,6 +43,8 @@ var token = "EAAEcEkKVmnIBAChlOhWc1tHveQIHOuutAOQQGAQqL7QbwPXBO5zC0pOG39JmHsOl81
 var sender = req.params.mobile;
 
 var text = req.params.message;
+
+var speech = 'Message sent successfully to '+sender;			
 	
 sendTextMessage(sender, text);
 
