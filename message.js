@@ -46,9 +46,9 @@ var text = req.params.message;
 
 var speech = 'Message sent successfully to'+sender;	
 
-response.statusCode = 200;
+res.statusCode = 200;
 	
-response.setHeader('Content-Type', 'application/json');	
+res.setHeader('Content-Type', 'application/json');	
 
 // GENERATE THE RESPONSE BODY - HIMANT - And SEND BACK THE RESPONSE TO CLIENT SPEECH Object
      var responseBody = {
