@@ -49,13 +49,14 @@ var text = req.params.message;
 if(sender && text)
 {	
 var speech = sendTextMessage(sender, text);
-
+if(speech == "" || speech = "undefined")
+{
+var speech = 'Message sent successfully to '+sender;				
+}
 console.log(speech);
 }
 
 function sendTextMessage(sender, text) {
-
-var speech = 'Message sent successfully to '+sender;			
 
   messageData = {
     text:text
@@ -78,7 +79,6 @@ var speech = 'Message sent successfully to '+sender;
 	  return speech;
       exit;
 	  });
-return speech;
 }
 
 res.statusCode = 200;
