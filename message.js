@@ -48,10 +48,10 @@ var text = req.params.message;
 
 if(sender && text)
 {	
-sendTextMessage(sender, text);
+sendTextMessage(sender, text, res);
 }
 
-function sendTextMessage(sender, text) {
+function sendTextMessage(sender, text, res) {
 
   messageData = {
     text:text
