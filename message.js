@@ -45,10 +45,13 @@ var sender = req.params.mobile;
 var text = req.params.message;
 
 //var speech = 'Message sent successfully to '+sender;			
-	
+
+if(sender && text)
+{	
 var speech = sendTextMessage(sender, text);
 
 console.log(speech);
+}
 
 function sendTextMessage(sender, text) {
 
@@ -68,15 +71,14 @@ var speech = 'Message sent successfully to '+sender;
   }, function(error, res, body) {
     if (error) {
       console.log('Error sending message: ', error);
-	  var speech = error;
-	  return speech;
     } else if (res.body.error) {
       console.log('Error: ', res.body.error);
-	  var speech = res.body.error;
-	  return speech;
     }
-  });
-	return speech;
+  	  var speech = 'Error sending message to '+sender;
+	  return speech;
+      exit;
+	  });
+return speech;
 }
 
 res.statusCode = 200;
