@@ -49,7 +49,7 @@ var text = req.params.message;
 if(sender && text)
 {	
 var speech = sendTextMessage(sender, text);
-if(speech == "" || speech = "undefined")
+if(speech == "" || speech == "undefined")
 {
 var speech = 'Message sent successfully to '+sender;				
 }
