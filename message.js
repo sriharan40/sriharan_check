@@ -6,13 +6,27 @@ var url  = require('url');
 var http = require('http');
 var qs = require('querystring');
 
+var params=function(req){
+  let q=req.url.split('?'),result={};
+  if(q.length>=2){
+      q[1].split('&').forEach((item)=>{
+           try {
+             result[item.split('=')[0]]=item.split('=')[1];
+           } catch (e) {
+             result[item.split('=')[0]]='';
+           }
+      })
+  }
+  return result;
+}
+
 http.createServer(function(req, res) {
   var headers = req.headers;
   var method = req.method;
   var url = req.url;
   var body = [];
 
-app.get("/", function(request, response) {
+req.params=params(req);
 
 var url_query = require('url').parse(request.url).pathname;
 
@@ -24,11 +38,11 @@ var text = "Auto message on your number +91 8050582590";
 
 //app.get('/', function(req, res){
 
-var query = url_query.query;
+//var query = url_query.query;
 
-var sender = query.mobile;
+var sender = req.params.mobile;
 //var sender = "himant.gupta";
-var text = query.message;
+var text = req.params.message;
 
 var speech = 'Message sent successfully to'+sender;	
 
@@ -66,10 +80,8 @@ function sendTextMessage(sender, text) {
   });
 }
 
-
     res.write(JSON.stringify(responseBody));
     res.end();
 
-});
 
 }).listen((process.env.PORT), () => console.log("Server listening"));
