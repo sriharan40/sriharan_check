@@ -64,7 +64,7 @@ function sendTextMessage(sender, text, res) {
         recipient: {phone_number:sender},
         message: messageData,
       }
-  }, function(error, res, body) {
+  }, function(error, response, body) {
     if (error) {
       console.log('Error sending message: ', error);
 
