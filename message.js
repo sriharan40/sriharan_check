@@ -48,6 +48,8 @@ var speech = 'Message sent successfully to '+sender;
 	
 var speech = sendTextMessage(sender, text);
 
+console.log(speech);
+
 function sendTextMessage(sender, text) {
   messageData = {
     text:text
@@ -70,10 +72,7 @@ function sendTextMessage(sender, text) {
 	  var speech = res.body.error;
 	  return speech;
     }
-	else{
-      var speech = 'Message sent successfully to '+sender;			
-	  return speech;
-	}
+	return speech;
   });
 }
 
