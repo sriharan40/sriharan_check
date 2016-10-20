@@ -53,7 +53,7 @@ sendTextMessage(sender, text, res);
 
 function sendTextMessage(sender, text, res) {
 
-  messageData = 
+  messageData = {
     "text":"Select an option:",
     "quick_replies":[
       {
@@ -67,7 +67,7 @@ function sendTextMessage(sender, text, res) {
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
-   
+   }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
       qs: {access_token:token},
