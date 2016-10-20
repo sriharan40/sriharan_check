@@ -44,21 +44,19 @@ var sender = req.params.sender;
 
 var mobile = req.params.mobile;
 
-var text = req.params.message;
-
 //var speech = 'Message sent successfully to '+sender;			
 
-if(sender && text)
+if(sender)
 {	
-sendTextMessage(sender, text, res);
+sendTextMessage(sender, res);
 }
 
-if(mobile && text)
+if(mobile)
 {	
-sendMessage(mobile, text, res);
+sendMessage(mobile, res);
 }
 
-function sendMessage(mobile, text, res) {
+function sendMessage(mobile, res) {
 	
 	var accountSid = process.env.accountSid;
 	var authToken = process.env.authToken;
@@ -89,7 +87,7 @@ function sendMessage(mobile, text, res) {
 	});	
 }
 
-function sendTextMessage(sender, text, res) {
+function sendTextMessage(sender, res) {
 
   messageData = {
     "text":"Select an option:",
