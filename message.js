@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var request = require("request");
 var util = require("util");
+//var url  = require('url');
 var http = require('http');
+//var qs = require('querystring');
 
 var params=function(req){
   var q=req.url.split('?'),result={};
@@ -40,6 +42,8 @@ var token = process.env.FB_PAGE_TOKEN;
 
 var sender = req.params.sender;
 
+var mobile = req.params.mobile;
+
 var text = req.params.message;
 
 //var speech = 'Message sent successfully to '+sender;			
@@ -47,6 +51,42 @@ var text = req.params.message;
 if(sender && text)
 {	
 sendTextMessage(sender, text, res);
+}
+
+if(mobile && text)
+{	
+sendMessage(mobile, text, res);
+}
+
+function sendMessage(mobile, text, res) {
+	
+	var accountSid = process.env.accountSid;
+	var authToken = process.env.authToken;
+
+	var client = require('twilio')(accountSid, authToken);
+
+	client.sms.messages.create({
+	    to: mobile,
+	    from: '+18312165009',
+	    body: 'Click Http://m.me/himantmusic to know your outstanding balance and for support type Hi' 
+	}, function(error, message) {
+	    // The HTTP request to Twilio will run asynchronously. This callback
+	    // function will be called when a response is received from Twilio
+	    // The "error" variable will contain error information, if any.
+	    // If the request was successful, this value will be "falsy"
+	    if (!error) {
+		// The second argument to the callback will contain the information
+		// sent back by Twilio for the request. In this case, it is the
+		// information about the text messsage you just sent:
+		console.log('Success! The SID for this SMS message is:');
+		console.log(message.sid);
+
+		console.log('Message sent on:');
+		console.log(message.dateCreated);
+	    } else {
+		console.log('Oops! There was an error.');
+	    }
+	});	
 }
 
 function sendTextMessage(sender, text, res) {
