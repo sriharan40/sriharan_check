@@ -2,9 +2,7 @@ var express = require('express');
 var app = express();
 var request = require("request");
 var util = require("util");
-//var url  = require('url');
 var http = require('http');
-//var qs = require('querystring');
 
 var params=function(req){
   var q=req.url.split('?'),result={};
@@ -58,12 +56,12 @@ function sendTextMessage(sender, text, res) {
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"My Outstanding Balance",
+        "title":"My Outstanding",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
       },
       {
         "content_type":"text",
-        "title":"Bills",
+        "title":"My Bills",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
