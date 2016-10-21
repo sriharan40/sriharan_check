@@ -194,7 +194,21 @@ function sendMessage(mobile, text, res) {
 	    } else {
 		console.log('Oops! There was an error.');
 	    }
-	});	
+	});
+	
+   res.statusCode = 200;
+
+   res.setHeader('Content-Type', 'application/json');
+	  
+	var responseBody = {
+        "speech": text,
+        "displayText": text,	 
+        "source": "apiai-Himant-OTP sample"
+    };
+	
+    res.write(JSON.stringify(responseBody));
+    res.end();
+	
 }
 
 function sendTextMessage(sender, text, res) {
@@ -257,6 +271,21 @@ function sendTextMessage(sender, text, res) {
     res.write(JSON.stringify(responseBody));
     res.end();
 	  }
+	else
+	{
+    res.statusCode = 200;
+
+	res.setHeader('Content-Type', 'application/json');
+	  
+	var responseBody = {
+        "speech": text,
+        "displayText": text,	 
+        "source": "apiai-Himant-OTP sample"
+    };
+	
+    res.write(JSON.stringify(responseBody));
+    res.end();		
+	}		
   
 	  });
 	  }
