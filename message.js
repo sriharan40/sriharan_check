@@ -78,7 +78,7 @@ messageData = {
       "type":"template",
       "payload":{
         "template_type":"receipt",
-        "recipient_name":"Sriharan",		
+        "recipient_name":"Test User",		
         "order_number":"12345678902",
         "currency":"USD",
         "payment_method":"PayPal",        
