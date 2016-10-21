@@ -44,7 +44,9 @@ var sender = req.params.sender;
 
 var mobile = req.params.mobile;
 
-var text = req.params.message;
+//var text = req.params.message;
+
+var text = "Welcome to ePayment System";
 
 var payment = req.params.payment;
 
@@ -57,12 +59,12 @@ var text = "Congratulations your payment done successfully.";
 sendNotification(payment,text,res);	
 }
 
-if(sender && text)
+if(sender)
 {	
 sendTextMessage(sender, text, res);
 }
 
-if(mobile && text)
+if(mobile)
 {	
 sendMessage(mobile, text, res);
 }
