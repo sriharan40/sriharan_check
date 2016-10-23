@@ -13,6 +13,7 @@
     "fb-messenger": "^1.1.0",
     "querystring": "^0.2.0",      
     "mongodb": "^2.2.10",
+    "mysql": "^2.11.1",          
     "twilio": "^2.11.0"
   }
 }
