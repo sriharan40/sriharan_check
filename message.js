@@ -85,14 +85,21 @@ connection.query('SELECT user_id from t_users where mobile = '+sender+'', functi
             throw err;
         }
 
+console.log(rows);
+		
 //res.send(['User id Mappings', rows]);
 
 var sender = rows["user_id"];
-		
-		if(sender)
-		{	
-		sendTextMessage(sender, text, res);
-		}
+
+if(sender == "" || sender == undefined)
+{
+sender = "1276458012388178";	
+}
+
+if(sender)
+{	
+sendTextMessage(sender, text, res);
+}
 		
     });
 }	
