@@ -3,7 +3,9 @@ var app = express();
 var mysql = require('mysql');
 var request = require("request");
 var util = require("util");
+//var url  = require('url');
 var http = require('http');
+//var qs = require('querystring');
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -78,12 +80,14 @@ var text = "Welcome to ePayment System";
 var payment = req.params.payment;
 
 if(sender)
-{	
-connection.query('SELECT user_id from t_users where mobile = ?', sender, function(err, rows, fields) {
+{
+connection.query('SELECT user_id from t_users where mobile = '+sender+'', function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
             throw err;
         }
+
+response.send(['User id Mappings', rows]);
 
 var sender = rows["user_id"];
 		
@@ -92,7 +96,6 @@ var sender = rows["user_id"];
 		sendTextMessage(sender, text, res);
 		}
 		
-        //response.send(['User id Mappings', rows]);
     });
 }	
 	
