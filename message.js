@@ -65,11 +65,9 @@ var payment = req.params.payment;
 
 var text1 = req.params.message;
 
-var text = text1;
-
-if(text = "" || text == undefined)
+if(text1 = "" || text1 == undefined)
 {
-var text = "Welcome to ePayment System";
+var text1 = "Welcome to ePayment System";
 }
 
 if(sender)
@@ -84,7 +82,7 @@ var sender = rows[0].user_id;
 
 if(sender)
 {
-sendTextMessage(sender, text, res);
+sendTextMessage(sender, text1, res);
 }
 		
     });
@@ -92,17 +90,17 @@ sendTextMessage(sender, text, res);
 	
 if(payment)
 {
-var text = "Congratulations your payment done successfully.";
+var text1 = "Congratulations your payment done successfully.";
 	
-sendNotification(payment,text,res);	
+sendNotification(payment,text1,res);	
 }
 
 if(mobile)
 {	
-sendMessage(mobile, text, res);
+sendMessage(mobile, text1, res);
 }
 
-function sendNotification(receiver, text, res) {
+function sendNotification(receiver, text1, res) {
 
 console.log('Receiver: '+receiver);
 
@@ -185,8 +183,8 @@ messageData = {
 		  res.setHeader('Content-Type', 'application/json');
 	  
 	var responseBody = {
-        "speech": text,
-        "displayText": text,	 
+        "speech": text1,
+        "displayText": text1,	 
         "source": "apiai-Himant-OTP sample"
     };
 	
@@ -199,7 +197,7 @@ messageData = {
 }
 
 
-function sendMessage(mobile, text, res) {
+function sendMessage(mobile, text1, res) {
 	
 	var accountSid = process.env.accountSid;
 	var authToken = process.env.authToken;
@@ -218,7 +216,7 @@ function sendMessage(mobile, text, res) {
 	    if (!error) {
 		// The second argument to the callback will contain the information
 		// sent back by Twilio for the request. In this case, it is the
-		// information about the text messsage you just sent:
+		// information about the text1 messsage you just sent:
 		console.log('Success! The SID for this SMS message is:');
 		console.log(message.sid);
 
@@ -234,8 +232,8 @@ function sendMessage(mobile, text, res) {
    res.setHeader('Content-Type', 'application/json');
 	  
 	var responseBody = {
-        "speech": text,
-        "displayText": text,	 
+        "speech": text1,
+        "displayText": text1,	 
         "source": "apiai-Himant-OTP sample"
     };
 	
@@ -244,12 +242,12 @@ function sendMessage(mobile, text, res) {
 	
 }
 
-function sendTextMessage(sender, text, res) {
+function sendTextMessage(sender, text1, res) {
 
-console.log(text);
+console.log(text1);
 
   messageData = {
-    "text": text,
+    "text1": text1,
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -301,8 +299,8 @@ console.log(text);
 	res.setHeader('Content-Type', 'application/json');
 	  
 	var responseBody = {
-        "speech": text,
-        "displayText": text,	 
+        "speech": text1,
+        "displayText": text1,	 
         "source": "apiai-Himant-OTP sample"
     };
 	
