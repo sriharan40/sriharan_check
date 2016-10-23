@@ -85,7 +85,7 @@ connection.query('SELECT user_id from t_users where mobile = '+sender+'', functi
             throw err;
         }
 
-res.send(['User id Mappings', rows]);
+//res.send(['User id Mappings', rows]);
 
 var sender = rows["user_id"];
 		
