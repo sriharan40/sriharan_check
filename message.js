@@ -61,14 +61,14 @@ var sender = req.params.sender;
 
 var mobile = req.params.mobile;
 
+var payment = req.params.payment;
+
 var text = req.params.message;
 
 if(text = "" || text == undefined)
 {
 	var text = "Welcome to ePayment System";
 }
-
-var payment = req.params.payment;
 
 if(sender)
 {
@@ -77,13 +77,12 @@ connection.query('SELECT user_id from t_users where mobile = '+sender+'', functi
             console.log('error: ', err);
             throw err;
         }
-
-console.log(rows);
 		
 var sender = rows[0].user_id;
 
 if(sender)
-{	
+{
+console.log(text);	
 sendTextMessage(sender, text, res);
 }
 		
