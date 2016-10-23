@@ -243,12 +243,12 @@ function sendMessage(mobile, text, res) {
 	
 }
 
-function sendTextMessage(sender, text, res) {
+function sendTextMessage(sender, text1, res) {
 
-console.log(text);
+console.log(text1);
 
   messageData = {
-    "text": text,
+    "text": text1,
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
