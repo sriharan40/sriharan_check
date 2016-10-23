@@ -72,6 +72,8 @@ if(text = "" || text == undefined)
 var text = "Welcome to ePayment System";
 }
 
+console.log(text);
+
 if(sender)
 {
 connection.query('SELECT user_id from t_users where mobile = '+sender+'', function(err, rows, fields) {
@@ -245,8 +247,6 @@ function sendMessage(mobile, text, res) {
 }
 
 function sendTextMessage(sender, text, res) {
-
-console.log(text);
 
   messageData = {
     "text": text,
