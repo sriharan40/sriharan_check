@@ -63,12 +63,16 @@ var mobile = req.params.mobile;
 
 var payment = req.params.payment;
 
-var text = req.params.message;
+var text1 = req.params.message;
+
+var text = text1;
 
 if(text = "" || text == undefined)
 {
 	var text = "Welcome to ePayment System";
 }
+
+console.log(text);	
 
 if(sender)
 {
@@ -82,8 +86,7 @@ var sender = rows[0].user_id;
 
 if(sender)
 {
-console.log(text);	
-sendTextMessage(sender, text, res);
+sendTextMessage(sender, text1, res);
 }
 		
     });
