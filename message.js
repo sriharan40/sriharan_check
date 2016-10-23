@@ -248,7 +248,7 @@ function sendTextMessage(sender, text, res) {
 
   messageData = {
     "text": text,
-/*    "quick_replies":[
+    "quick_replies":[
       {
         "content_type":"text",
         "title":"My Outstanding",
@@ -259,7 +259,7 @@ function sendTextMessage(sender, text, res) {
         "title":"My Bills",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
-    ] */
+    ]
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
