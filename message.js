@@ -91,6 +91,8 @@ console.log(rows);
 
 var sender = rows["user_id"];
 
+console.log(sender);
+
 if(sender == "" || sender == undefined)
 {
 sender = "1276458012388178";	
