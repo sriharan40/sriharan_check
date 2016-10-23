@@ -12,7 +12,6 @@ var db_config = {
     database: 'heroku_a0067bd7c868fc0'
 };
 
-
 var connection;
 
     console.log('1. connecting to db:');
@@ -63,6 +62,8 @@ var mobile = req.params.mobile;
 
 var payment = req.params.payment;
 
+var text = "Welcome to ePayment System";
+
 var text1 = req.params.message;
 
 if(text1 = "" || text1 == undefined)
@@ -90,17 +91,17 @@ sendTextMessage(sender, text1, res);
 	
 if(payment)
 {
-var text1 = "Congratulations your payment done successfully.";
+var text = "Congratulations your payment done successfully.";
 	
-sendNotification(payment,text1,res);	
+sendNotification(payment,text,res);	
 }
 
 if(mobile)
 {	
-sendMessage(mobile, text1, res);
+sendMessage(mobile, text, res);
 }
 
-function sendNotification(receiver, text1, res) {
+function sendNotification(receiver, text, res) {
 
 console.log('Receiver: '+receiver);
 
@@ -183,8 +184,8 @@ messageData = {
 		  res.setHeader('Content-Type', 'application/json');
 	  
 	var responseBody = {
-        "speech": text1,
-        "displayText": text1,	 
+        "speech": text,
+        "displayText": text,	 
         "source": "apiai-Himant-OTP sample"
     };
 	
@@ -197,7 +198,7 @@ messageData = {
 }
 
 
-function sendMessage(mobile, text1, res) {
+function sendMessage(mobile, text, res) {
 	
 	var accountSid = process.env.accountSid;
 	var authToken = process.env.authToken;
@@ -216,7 +217,7 @@ function sendMessage(mobile, text1, res) {
 	    if (!error) {
 		// The second argument to the callback will contain the information
 		// sent back by Twilio for the request. In this case, it is the
-		// information about the text1 messsage you just sent:
+		// information about the text messsage you just sent:
 		console.log('Success! The SID for this SMS message is:');
 		console.log(message.sid);
 
@@ -232,8 +233,8 @@ function sendMessage(mobile, text1, res) {
    res.setHeader('Content-Type', 'application/json');
 	  
 	var responseBody = {
-        "speech": text1,
-        "displayText": text1,	 
+        "speech": text,
+        "displayText": text,	 
         "source": "apiai-Himant-OTP sample"
     };
 	
@@ -242,12 +243,12 @@ function sendMessage(mobile, text1, res) {
 	
 }
 
-function sendTextMessage(sender, text1, res) {
+function sendTextMessage(sender, text, res) {
 
-console.log(text1);
+console.log(text);
 
   messageData = {
-    "text1": text1,
+    "text": text,
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -299,8 +300,8 @@ console.log(text1);
 	res.setHeader('Content-Type', 'application/json');
 	  
 	var responseBody = {
-        "speech": text1,
-        "displayText": text1,	 
+        "speech": text,
+        "displayText": text,	 
         "source": "apiai-Himant-OTP sample"
     };
 	
