@@ -3,9 +3,7 @@ var app = express();
 var mysql = require('mysql');
 var request = require("request");
 var util = require("util");
-//var url  = require('url');
 var http = require('http');
-//var qs = require('querystring');
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -87,7 +85,7 @@ connection.query('SELECT user_id from t_users where mobile = '+sender+'', functi
             throw err;
         }
 
-response.send(['User id Mappings', rows]);
+res.send(['User id Mappings', rows]);
 
 var sender = rows["user_id"];
 		
