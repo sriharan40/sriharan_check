@@ -246,8 +246,10 @@ function sendMessage(mobile, text, res) {
 
 function sendTextMessage(sender, text, res) {
 
+console.log(text);
+
   messageData = {
-    "text": "Welcome",
+    "text": text,
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
