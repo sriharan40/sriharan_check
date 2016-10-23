@@ -1,10 +1,21 @@
 var express = require('express');
 var app = express();
+var mysql = require('mysql');
 var request = require("request");
 var util = require("util");
 //var url  = require('url');
 var http = require('http');
 //var qs = require('querystring');
+
+var db_config = {
+    host: 'us-cdbr-iron-east-04.cleardb.net',
+    user: 'b213965cc9ad75',
+    password: '9c81ac99',
+    database: 'heroku_a0067bd7c868fc0'
+};
+
+
+var connection;
 
 var params=function(req){
   var q=req.url.split('?'),result={};
@@ -40,7 +51,7 @@ var token = process.env.FB_PAGE_TOKEN;
 
 //var query = url_query.query;
 
-var sender = req.params.sender;
+//var sender = req.params.sender;
 
 var mobile = req.params.mobile;
 
@@ -50,6 +61,24 @@ var text = "Welcome to ePayment System";
 
 var payment = req.params.payment;
 
+connection = mysql.createConnection(db_config); // Recreate the connection, since
+
+connection.query('SELECT user_id from t_users where mobile = ?', mobile, function(err, rows, fields) {
+        if (err) {
+            console.log('error: ', err);
+            throw err;
+        }
+
+var sender = rows["user_id"];
+		
+		if(sender)
+		{	
+		sendTextMessage(sender, text, res);
+		}
+		
+        //response.send(['User id Mappings', rows]);
+    });
+	
 //var speech = 'Message sent successfully to '+sender;			
 
 if(payment)
@@ -57,11 +86,6 @@ if(payment)
 var text = "Congratulations your payment done successfully.";
 	
 sendNotification(payment,text,res);	
-}
-
-if(sender)
-{	
-sendTextMessage(sender, text, res);
 }
 
 if(mobile)
