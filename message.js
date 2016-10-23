@@ -55,25 +55,18 @@ http.createServer(function(req, res) {
 
 req.params=params(req);
 
-//var url_query = require('url').parse(request.url).pathname;
-
 var token = process.env.FB_PAGE_TOKEN;
-// +639178313417  639178483863
-//var sender = "+918050582590";
-//var sender = "himant.gupta";
-//var text = "Auto message on your number +91 8050582590";
-
-//app.get('/', function(req, res){
-
-//var query = url_query.query;
 
 var sender = req.params.sender;
 
 var mobile = req.params.mobile;
 
-//var text = req.params.message;
+var text = req.params.message;
 
-var text = "Welcome to ePayment System";
+if(text = "" || text == undefined)
+{
+	var text = "Welcome to ePayment System";
+}
 
 var payment = req.params.payment;
 
@@ -87,16 +80,7 @@ connection.query('SELECT user_id from t_users where mobile = '+sender+'', functi
 
 console.log(rows);
 		
-//res.send(['User id Mappings', rows]);
-
 var sender = rows[0].user_id;
-
-console.log(sender);
-
-if(sender == "" || sender == undefined)
-{
-sender = "1276458012388178";	
-}
 
 if(sender)
 {	
@@ -106,8 +90,6 @@ sendTextMessage(sender, text, res);
     });
 }	
 	
-//var speech = 'Message sent successfully to '+sender;			
-
 if(payment)
 {
 var text = "Congratulations your payment done successfully.";
@@ -265,8 +247,8 @@ function sendMessage(mobile, text, res) {
 function sendTextMessage(sender, text, res) {
 
   messageData = {
-    "text":"Select an option:",
-    "quick_replies":[
+    "text": text,
+/*    "quick_replies":[
       {
         "content_type":"text",
         "title":"My Outstanding",
@@ -277,7 +259,7 @@ function sendTextMessage(sender, text, res) {
         "title":"My Bills",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
-    ]
+    ] */
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
