@@ -89,7 +89,7 @@ console.log(rows);
 		
 //res.send(['User id Mappings', rows]);
 
-var sender = rows["user_id"];
+var sender = rows[0].user_id;
 
 console.log(sender);
 
