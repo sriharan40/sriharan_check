@@ -69,10 +69,8 @@ var text = text1;
 
 if(text = "" || text == undefined)
 {
-	var text = "Welcome to ePayment System";
+var text = "Welcome to ePayment System";
 }
-
-console.log(text);	
 
 if(sender)
 {
@@ -86,7 +84,7 @@ var sender = rows[0].user_id;
 
 if(sender)
 {
-sendTextMessage(sender, text1, res);
+sendTextMessage(sender, text, res);
 }
 		
     });
