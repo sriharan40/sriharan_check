@@ -12,6 +12,7 @@ var db_config = {
     database: 'heroku_a0067bd7c868fc0'
 };
 
+
 var connection;
 
     console.log('1. connecting to db:');
@@ -62,13 +63,13 @@ var mobile = req.params.mobile;
 
 var payment = req.params.payment;
 
-var text = "Welcome to ePayment System";
-
 var text1 = req.params.message;
 
-if(text1 = "" || text1 == undefined)
+var text = text1;
+
+if(text = "" || text == undefined)
 {
-var text1 = "Welcome to ePayment System";
+var text = "Welcome to ePayment System";
 }
 
 if(sender)
@@ -243,12 +244,12 @@ function sendMessage(mobile, text, res) {
 	
 }
 
-function sendTextMessage(sender, text1, res) {
+function sendTextMessage(sender, text, res) {
 
-console.log(text1);
+console.log(text);
 
   messageData = {
-    "text": text1,
+    "text": text,
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
