@@ -182,6 +182,10 @@ messageData1 = {
         "displayText": text,	 
         "source": "apiai-Himant-OTP sample"
     };	
+
+    res.write(JSON.stringify(responseBody));
+    res.end();
+	
 		 }	 
   });
   
@@ -269,12 +273,13 @@ messageData = {
         "displayText": text,	 
         "source": "apiai-Himant-OTP sample"
     };
-}
-	 });	  
-	 
+
     res.write(JSON.stringify(responseBody));
     res.end();
-	 
+	
+}
+	 });	  
+	 	 
 }
 
 
