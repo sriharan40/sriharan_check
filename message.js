@@ -101,7 +101,7 @@ sendNotification(payment,text,res);
 
 if(mobile)
 {	
-sendMessage(mobile, text, res);
+sendMessage(mobile, text1, res);
 }
 
 function sendNotification(receiver, text, res) {
