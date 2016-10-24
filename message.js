@@ -98,13 +98,13 @@ sendTextMessage(sender, text1, res);
 
 if(success)
 {
-	sendNotification1(success,text,res);
+var text = "Future payment notification.";
+
+sendNotification1(success,text,res);
 }
 	
 if(payment)
-{
-var text = "Congratulations your payment done successfully.";
-	
+{	
 sendNotification(payment,text,res);	
 }
 
