@@ -211,7 +211,8 @@ function sendMessage(mobile, text, res) {
 	client.sms.messages.create({
 	    to: mobile,
 	    from: '+18312165009',
-	    body: 'Click Http://m.me/himantmusic to know your outstanding balance and for support type Hi' 
+	    body: text 
+//	    body: 'Click Http://m.me/himantmusic to know your outstanding balance and for support type Hi' 
 	}, function(error, message) {
 	    // The HTTP request to Twilio will run asynchronously. This callback
 	    // function will be called when a response is received from Twilio
