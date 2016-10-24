@@ -196,7 +196,7 @@ messageData = {
 }
 	 });
   	 
-messageData = {
+messageData1 = {
     "text":"Will you get in touch with us for future payments also ?",
     "quick_replies":[
       {
@@ -218,7 +218,7 @@ messageData = {
       method: 'POST',
       json: {
 	    recipient: {id:receiver},
-        message: messageData,
+        message: messageData1,
       }
   }, function(error, response, body) {
   console.log('Result: '+receiver);
