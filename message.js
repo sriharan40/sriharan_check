@@ -65,10 +65,13 @@ var payment = req.params.payment;
 
 var text1 = req.params.message;
 
+if(text1)
+{
 text1 = text1.replace(/%20/g, ' ');
 	
 var text = text1;
-
+}
+	
 if(text = "" || text == undefined)
 {
 var text = "Welcome to ePayment System";
