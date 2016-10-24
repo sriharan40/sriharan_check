@@ -190,7 +190,7 @@ messageData1 = {
   });
   
 
-messageData = {
+/* messageData = {
 "attachment":{
       "type":"template",
       "payload":{
@@ -278,7 +278,7 @@ messageData = {
     res.end();
 	
 }
-	 });	  
+	 }); */	  
 	 	 
 }
 
