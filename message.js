@@ -35,6 +35,8 @@ var mobile = req.params.mobile;
 
 var payment = req.params.payment;
 
+var success = req.params.success;
+
 var text1 = req.params.message;
 
 var text1 = ("" + text1).replace(/%20/g, ' ');
@@ -93,15 +95,17 @@ sendTextMessage(sender, text1, res);
 		
     });
 }	
+
+if(success)
+{
+	sendNotification1(success,text,res);
+}
 	
 if(payment)
 {
 var text = "Congratulations your payment done successfully.";
 	
-sendNotification1(payment,text,res);
-
-sendNotification1(payment,text,res);
-	
+sendNotification(payment,text,res);	
 }
 
 if(mobile)
@@ -211,7 +215,7 @@ function sendNotification1(receiver, text, res) {
 console.log('Receiver: '+receiver);
 
 messageData1 = {
-    "text":"Congratulations payment done successfully. Will you get in touch with us for future payments also ?",
+    "text":"Will you get in touch with us for future payments also ?",
     "quick_replies":[
       {
         "content_type":"text",
