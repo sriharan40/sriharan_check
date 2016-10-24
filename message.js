@@ -194,7 +194,7 @@ messageData = {
         "source": "apiai-Himant-OTP sample"
     };
 }
-	 )};
+	 });
   	 
 messageData = {
     "text":"Will you get in touch with us for future payments also ?",
