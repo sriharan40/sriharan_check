@@ -39,7 +39,7 @@ var text1 = req.params.message;
 
 if(text1 = "" || text1 == undefined)
 {
-var text1 = "Welcome to ePayment System";
+var text1 = "Welcome%20to%20ePayment%20System";
 }
 
 text1 = text1.replace(/%20/g, ' ');
