@@ -65,7 +65,7 @@ var payment = req.params.payment;
 
 var text1 = req.params.message;
 
-text1 = text1.replace('%20', ' ');
+text1 = text1.replace(/%20/g, ' ');
 	
 var text = text1;
 
