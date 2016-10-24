@@ -98,7 +98,7 @@ if(payment)
 {
 var text = "Congratulations your payment done successfully.";
 	
-sendNotification(payment,text,res);
+sendNotification1(payment,text,res);
 
 sendNotification1(payment,text,res);
 	
@@ -211,7 +211,7 @@ function sendNotification1(receiver, text, res) {
 console.log('Receiver: '+receiver);
 
 messageData1 = {
-    "text":"Will you get in touch with us for future payments also ?",
+    "text":"Congratulations payment done successfully. Will you get in touch with us for future payments also ?",
     "quick_replies":[
       {
         "content_type":"text",
