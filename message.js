@@ -113,6 +113,19 @@ setTimeout(function() {
 sendNotification1(payment,text,res);
 }, 3000);
 
+res.statusCode = 200;
+
+res.setHeader('Content-Type', 'application/json');
+  
+var responseBody = {
+	"speech": text,
+	"displayText": text,	 
+	"source": "apiai-Himant-OTP sample"
+};
+
+res.write(JSON.stringify(responseBody));
+res.end();
+
 }
 
 if(mobile)
@@ -195,22 +208,6 @@ messageData = {
     res.write(JSON.stringify(responseBody));
     res.end();
 	  }
-	 else{
-		console.log('Result: '+receiver);
-
-   	      res.statusCode = 200;
-	
-		  res.setHeader('Content-Type', 'application/json');
-	  
-	var responseBody = {
-        "speech": text,
-        "displayText": text,	 
-        "source": "apiai-Himant-OTP sample"
-    };
-
-    res.write(JSON.stringify(responseBody));
-    res.end();
-	
 }
 	 });
 	 	 
@@ -281,23 +278,7 @@ messageData1 = {
     res.write(JSON.stringify(responseBody));
     res.end();
 	  }
-	 else{
-		console.log('Result: '+receiver);
-
-   	      res.statusCode = 200;
-	
-		  res.setHeader('Content-Type', 'application/json');
 	  
-	var responseBody = {
-        "speech": text,
-        "displayText": text,	 
-        "source": "apiai-Himant-OTP sample"
-    };	
-
-    res.write(JSON.stringify(responseBody));
-    res.end();
-	
-		 }	 
   });  
 	 	 
 }
