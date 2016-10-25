@@ -111,7 +111,7 @@ sendNotification(payment,text,res);
 
 setTimeout(function() {
 sendNotification1(payment,text,res);
-}, 1000);
+}, 3000);
 
 }
 
