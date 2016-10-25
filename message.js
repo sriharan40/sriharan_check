@@ -219,7 +219,7 @@ function sendNotification1(receiver, text, res) {
 console.log('Receiver: '+receiver);
 
 messageData1 = {
-    "text":"Will you get in touch with us for future payments also ?",
+    "text":"Would you like us to keep you informed for future notifications here ?",
     "quick_replies":[
       {
         "content_type":"text",
