@@ -105,7 +105,14 @@ sendNotification1(success,text,res);
 	
 if(payment)
 {	
+var text = "Future payment notification.";
+
 sendNotification(payment,text,res);	
+
+setTimeout(function() {
+sendNotification1(payment,text,res);
+}, 1000);
+
 }
 
 if(mobile)
