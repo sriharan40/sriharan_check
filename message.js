@@ -31,6 +31,10 @@ var token = process.env.FB_PAGE_TOKEN;
 
 var sender = req.params.sender;
 
+var options = req.params.options;
+
+var options1 = options.split(',');
+
 var mobile = req.params.mobile;
 
 var payment = req.params.payment;
@@ -90,7 +94,7 @@ var sender = rows[0].user_id;
 
 if(sender)
 {
-sendTextMessage(sender, text1, res);
+sendTextMessage(sender, options1, text1, res);
 }
 		
     });
@@ -219,7 +223,7 @@ function sendNotification1(receiver, text, res) {
 console.log('Receiver: '+receiver);
 
 messageData1 = {
-    "text":"Would you like us to keep you informed for future notifications here ?",
+    "text":"Will you get in touch with us for future payments also ?",
     "quick_replies":[
       {
         "content_type":"text",
@@ -330,10 +334,22 @@ function sendMessage(mobile, text, res) {
 	
 }
 
-function sendTextMessage(sender, text, res) {
+function sendTextMessage(sender, options, text, res) {
 
   messageData = {
     "text": text,
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title": options[0],
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      },
+      {
+        "content_type":"text",
+        "title": options[1],
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+    ]	
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
