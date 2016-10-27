@@ -33,7 +33,10 @@ var sender = req.params.sender;
 
 var options = req.params.options;
 
+if(options)
+{
 var options1 = options.split(',');
+}
 
 var mobile = req.params.mobile;
 
