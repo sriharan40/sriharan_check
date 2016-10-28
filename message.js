@@ -47,6 +47,8 @@ var success = req.params.success;
 var text1 = req.params.message;
 
 var text1 = ("" + text1).replace(/%20/g, ' ');
+
+var text1 = ("" + text1).replace(/%3F/g, '?');
 	
 var text = text1;
 	
