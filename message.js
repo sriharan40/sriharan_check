@@ -343,7 +343,7 @@ var connection;
         }
     });
 	
-connection.query('SELECT * from caller_system where caller_system_name = '+name+'', function(err, rows1, fields) {
+connection.query('SELECT * from caller_system where caller_system_name = "'+name+'"', function(err, rows1, fields) {
         if (err) {
             console.log('error: ', err);
             throw err;
