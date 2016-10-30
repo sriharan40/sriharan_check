@@ -349,11 +349,11 @@ connection.query('SELECT caller_system_name from caller_system where caller_syst
             throw err;
         }
 		
-var caller_system_name = rows1[0].caller_system_name;
+var caller = rows1[0].caller_system_name;
 
-console.log(caller_system_name);
+console.log(caller);
 	
-if(caller_system_name)
+if(caller)
 {	
 	var accountSid = process.env.accountSid;
 	var authToken = process.env.authToken;
