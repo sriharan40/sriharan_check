@@ -351,7 +351,7 @@ connection.query('SELECT * from caller_system where caller_system_name = "'+name
             throw err;
         }
 
-if(rows1[0] != "")
+if(rows1[0] != "" || rows1[0] != undefined)
 {	
 var caller = rows1[0].caller_system_name;
 }
