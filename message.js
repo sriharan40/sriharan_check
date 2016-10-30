@@ -351,9 +351,7 @@ connection.query('SELECT * from caller_system where caller_system_name = "'+name
             throw err;
         }
 
-console.log('rows: ', rows1);
-
-if(rows1)
+if(rows1[0] != "")
 {	
 var caller = rows1[0].caller_system_name;
 }
