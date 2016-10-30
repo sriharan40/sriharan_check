@@ -352,9 +352,6 @@ connection.query('SELECT * from caller_system where caller_system_name = "'+name
         }
 		
 var caller = rows1[0].caller_system_name;
-});
-
-}
 	
 if(caller)
 {	
@@ -417,6 +414,27 @@ else{
     res.write(JSON.stringify(responseBody));
     res.end();	
 }	
+
+});
+
+}
+
+else{
+   var error = "Authentication Error";
+	
+   res.statusCode = 200;
+
+   res.setHeader('Content-Type', 'application/json');
+	  
+	var responseBody = {
+        "speech": error,
+        "displayText": error,	 
+        "source": "apiai-Himant-OTP sample"
+    };	
+
+    res.write(JSON.stringify(responseBody));
+    res.end();	
+}
 	
 }
 
