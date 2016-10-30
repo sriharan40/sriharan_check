@@ -350,9 +350,17 @@ connection.query('SELECT * from caller_system where caller_system_name = "'+name
             console.log('error: ', err);
             throw err;
         }
-		
+
+if(rows1)
+{	
 var caller = rows1[0].caller_system_name;
-	
+}
+
+else
+{
+var caller = "";	
+}	
+
 if(caller)
 {	
 	var accountSid = process.env.accountSid;
