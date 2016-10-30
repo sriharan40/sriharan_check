@@ -345,13 +345,15 @@ var connection;
         }
     });
 	
-connection.query('SELECT caller_system_name from caller_system where token = '+caller_name+'', function(err, rows, fields) {
+connection.query('SELECT caller_system_name from caller_system where caller_system_name = '+caller_name+'', function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
             throw err;
         }
 		
 var caller_system_name = rows[0].caller_system_name;
+
+console.log(caller_system_name);
 	
 if(caller_system_name)
 {	
