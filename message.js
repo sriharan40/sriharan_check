@@ -53,7 +53,10 @@ function decrypt(text){
   return dec;
 }
 
+if(token)
+{
 var caller_name = decrypt(token);
+}
 
 var payment = req.params.payment;
 
