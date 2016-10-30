@@ -317,6 +317,8 @@ messageData1 = {
 
 function sendMessage(mobile, caller_name, text, res) {
 
+console.log(caller_name);
+
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'b213965cc9ad75',
