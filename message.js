@@ -58,6 +58,10 @@ if(token)
 var caller_name = decrypt(token);
 }
 
+else{
+var caller_name = "";	
+}
+
 var payment = req.params.payment;
 
 var success = req.params.success;
