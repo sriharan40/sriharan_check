@@ -55,11 +55,11 @@ function decrypt(text){
 
 if(token)
 {
-var caller_name = decrypt(token);
+var name = decrypt(token);
 }
 
 else{
-var caller_name = "";	
+var name = "";	
 }
 
 var payment = req.params.payment;
@@ -161,7 +161,7 @@ res.end();
 
 if(mobile)
 {	
-sendMessage(mobile, caller_name, text1, res);
+sendMessage(mobile, name, text1, res);
 }
 
 function sendNotification(receiver, text, res) {
@@ -314,7 +314,7 @@ messageData1 = {
 	 	 
 }
 
-function sendMessage(mobile, caller_name, text, res) {
+function sendMessage(mobile, name, text, res) {
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -343,7 +343,7 @@ var connection;
         }
     });
 	
-connection.query('SELECT caller_system_name from caller_system where caller_system_name = '+caller_name+'', function(err, rows1, fields) {
+connection.query('SELECT * from caller_system where caller_system_name = '+name+'', function(err, rows1, fields) {
         if (err) {
             console.log('error: ', err);
             throw err;
