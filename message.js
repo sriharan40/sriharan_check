@@ -314,10 +314,7 @@ messageData1 = {
 	 	 
 }
 
-
 function sendMessage(mobile, caller_name, text, res) {
-
-console.log(caller_name);
 
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
@@ -325,7 +322,6 @@ var db_config = {
     password: '9c81ac99',
     database: 'heroku_a0067bd7c868fc0'
 };
-
 
 var connection;
 
@@ -347,13 +343,13 @@ var connection;
         }
     });
 	
-connection.query('SELECT caller_system_name from caller_system where caller_system_name = '+caller_name+'', function(err, rows, fields) {
+connection.query('SELECT caller_system_name from caller_system where caller_system_name = '+caller_name+'', function(err, rows1, fields) {
         if (err) {
             console.log('error: ', err);
             throw err;
         }
 		
-var caller_system_name = rows[0].caller_system_name;
+var caller_system_name = rows1[0].caller_system_name;
 
 console.log(caller_system_name);
 	
@@ -397,6 +393,9 @@ if(caller_system_name)
         "displayText": text,	 
         "source": "apiai-Himant-OTP sample"
     };
+    
+	res.write(JSON.stringify(responseBody));
+    res.end();
 }
 
 else{
@@ -411,12 +410,12 @@ else{
         "displayText": error,	 
         "source": "apiai-Himant-OTP sample"
     };	
+
+    res.write(JSON.stringify(responseBody));
+    res.end();	
 }	
 
 });
-	
-    res.write(JSON.stringify(responseBody));
-    res.end();
 	
 }
 
