@@ -111,7 +111,7 @@ var connection;
         }
     });
 	
-connection.query('SELECT user_id from t_users where mobile = '+sender+'', function(err, rows, fields) {
+connection.query('SELECT user_id from t_users where mobile = "'+sender+'"', function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
             throw err;
@@ -316,6 +316,8 @@ messageData1 = {
 
 function sendMessage(mobile, name, text, res) {
 
+if(name)
+{
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'b213965cc9ad75',
@@ -350,8 +352,7 @@ connection.query('SELECT * from caller_system where caller_system_name = "'+name
         }
 		
 var caller = rows1[0].caller_system_name;
-
-console.log(caller);
+}
 	
 if(caller)
 {	
