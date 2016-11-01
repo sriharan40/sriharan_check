@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var request = require("request");
 var util = require("util");
 var http = require('http');
-	
+
 var params=function(req){
   var q=req.url.split('?'),result={};
   if(q.length>=2){
@@ -40,7 +40,7 @@ var options1 = options.split(',');
 
 var mobile = req.params.mobile;
 
-var token = req.params.token;
+var caller_token = req.params.token;
 
 var crypto = require('crypto');
 var algorithm = 'aes-256-ctr';
@@ -53,9 +53,9 @@ function decrypt(text){
   return dec;
 }
 
-if(token)
+if(caller_token)
 {
-var name = decrypt(token);
+var name = decrypt(caller_token);
 }
 
 else{
