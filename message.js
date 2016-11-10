@@ -449,7 +449,9 @@ else{
 function sendTextMessage(sender, options, text, res) {
 
   messageData = {
-    "text": text,
+  if(options)
+  {	  
+   "text": text,
     "quick_replies":[
       {
         "content_type":"text",
@@ -462,6 +464,11 @@ function sendTextMessage(sender, options, text, res) {
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]	
+   }
+   else
+   {
+	"text": text   
+   }
    }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
