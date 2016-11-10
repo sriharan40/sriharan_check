@@ -448,9 +448,9 @@ else{
 
 function sendTextMessage(sender, options, text, res) {
 
-  messageData = {
   if(options)
-  {	  
+  {
+  messageData = {	  
    "text": text,
     "quick_replies":[
       {
@@ -465,11 +465,13 @@ function sendTextMessage(sender, options, text, res) {
       }
     ]	
    }
-   else
-   {
-	"text": text   
-   }
-   }
+  }
+  else
+  {
+  messageData = {	   
+	"text": text 
+     }	
+  }
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
       qs: {access_token:token},
