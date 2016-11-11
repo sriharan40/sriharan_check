@@ -121,7 +121,7 @@ var sender = rows[0].user_id;
 
 if(sender)
 {
-require("sendfbmsg");
+require("./modules/sendfbmsg");
 sendTextMessage(sender, options1, text1, res);
 }
 		
