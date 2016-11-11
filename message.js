@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var request = require("request");
 var util = require("util");
 var http = require('http');
+require("./modules/sendfbmsg");
 
 var params=function(req){
   var q=req.url.split('?'),result={};
@@ -83,7 +84,49 @@ console.log(text);
 
 if(sender)
 {
-require("./modules/sendfbmsg");
+var db_config = {
+    host: 'us-cdbr-iron-east-04.cleardb.net',
+    user: 'b213965cc9ad75',
+    password: '9c81ac99',
+    database: 'heroku_a0067bd7c868fc0'
+};
+
+
+var connection;
+
+    console.log('1. connecting to db:');
+    connection = mysql.createConnection(db_config); // Recreate the connection, since
+													// the old one cannot be reused.
+
+    connection.connect(function(err) {              	// The server is either down
+        if (err) {                                     // or restarting (takes a while sometimes).
+            console.log('2. error when connecting to db:', err);
+        }                                     	// to avoid a hot loop, and to allow our node script to
+    });                                     	// process asynchronous requests in the meantime.
+    											// If you're also serving http, display a 503 error.
+    connection.on('error', function(err) {
+        console.log('3. db error', err);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') { 	// Connection to the MySQL server is usually
+        } else {                                      	// connnection idle timeout (the wait_timeout
+            throw err;                                  // server variable configures this)
+        }
+    });
+	
+connection.query('SELECT user_id from t_users where mobile = "'+sender+'"', function(err, rows, fields) {
+        if (err) {
+            console.log('error: ', err);
+            throw err;
+        }
+		
+var sender = rows[0].user_id;
+
+if(sender)
+{
+sendTextMessage(sender, options1, text1, res);
+}
+
+});
+
 }
 		
 if(success)
