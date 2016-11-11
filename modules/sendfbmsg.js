@@ -1,5 +1,3 @@
-function sendTextMessage(sender, options, text, res) {
-
   if(options)
   {
   messageData = {	  
@@ -84,4 +82,3 @@ function sendTextMessage(sender, options, text, res) {
 	}		
   
 	  });
-}
