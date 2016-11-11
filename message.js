@@ -4,7 +4,6 @@ var mysql = require('mysql');
 var request = require("request");
 var util = require("util");
 var http = require('http');
-require("./modules/sendfbmsg");
 
 var params=function(req){
   var q=req.url.split('?'),result={};
@@ -164,6 +163,10 @@ res.end();
 if(mobile)
 {	
 sendMessage(mobile, name, text1, res);
+}
+
+function sendTextMessage(sender, options, text, res) {
+require("./modules/sendfbmsg");
 }
 
 function sendNotification(receiver, text, res) {
