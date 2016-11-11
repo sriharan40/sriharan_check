@@ -1,3 +1,5 @@
+sendTextMessage(sender, options1, text1, res);
+
 function sendTextMessage(sender, options, text, res) {
 
   if(options)
