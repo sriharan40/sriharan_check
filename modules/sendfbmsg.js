@@ -1,4 +1,5 @@
-  if(options)
+function sendTextMessage(sender, options, text, res) { 
+ if(options)
   {
   messageData = {	  
    "text": text,
@@ -82,3 +83,4 @@
 	}		
   
 	  });
+}
