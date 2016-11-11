@@ -19,7 +19,6 @@ var params=function(req){
   return result;
 }
 
-http.createServer(function(req, res) {
   var headers = req.headers;
   var method = req.method;
   var url = req.url;
@@ -172,5 +171,3 @@ function sendTextMessage(sender, options, text, res) {
   
 	  });
 }
-
-}).listen((process.env.PORT), () => console.log("Server listening"));
