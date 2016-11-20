@@ -172,18 +172,13 @@ if(options)
 {
 var options1 = options.split(",");
 
-var arry1 = [
-			{
+var arry1 = [];
+
+var arry1 = {
 			"content_type":"text",
             "title":"option1",
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-          },
-		  {
-			"content_type":"text",
-            "title":"option2",
-			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-          }
-		  ];
+          };
 
 //var options1 = [];
 
