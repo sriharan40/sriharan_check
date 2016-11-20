@@ -31,12 +31,12 @@ var token = process.env.FB_PAGE_TOKEN;
 
 var sender = req.params.sender;
 
-var options = req.params.options;
+var options1 = req.params.options;
 
-if(options)
-{
-var options1 = options.split(',');
-}
+//if(options)
+//{
+//var options1 = options.split(',');
+//}
 
 var mobile = req.params.mobile;
 
