@@ -177,13 +177,14 @@ var arry1 = [];
 for(var i=0; i<options1.length; i++) { 
 
 arry1.push({
-	"content_type":"text", 
-	"title":options1[i], 
+	"content_type":"text",
+	"title":options1[i],
 	"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
 	})	
+
 }	
 
-console.log("option:"+JSON.stringify(arry1));
+//console.log("option:"+JSON.stringify(arry1));
  
   messageData = {	  
    "text": text,
@@ -200,9 +201,8 @@ console.log("option:"+JSON.stringify(arry1));
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]  */	 
-   }
-   
-console.log("message:"+JSON.stringify(messageData)); 
+   } 
+//console.log("message:"+JSON.stringify(messageData)); 
   }
   else
   {
@@ -216,7 +216,7 @@ console.log("message:"+JSON.stringify(messageData));
       method: 'POST',
       json: {
         recipient: {id:sender},
-        message: messageData,
+        message: JSON.stringify(messageData),
       }
   }, function(error, response, body) {
     if (error) {
