@@ -172,14 +172,14 @@ if(options)
 {
 var arr1 = [];
 
-var options1 = [];
+//var options1 = [];
 
-var options1 = options.split(',');
+var options1 = options.split(",");
 
 for(var i=0; i<options1.length; i++) { 
   arr1.push({
 			"content_type":"text",
-            "title":options[i],
+            "title":options1[i],
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
           })	
 }	
