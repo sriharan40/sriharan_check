@@ -174,28 +174,26 @@ var options1 = options.split(",");
 
 var arry1 = [];
 
-var arry1 = {
+/* var arry1 = {
 			"content_type":"text",
             "title":"option1",
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
           };
 
-//var options1 = [];
+var options1 = []; */
 
-/* for(var i=0; i<options1.length; i++) { 
+for(var i=0; i<options1.length; i++) { 
 
-  arry1.push({
-			"content_type":"text",
-            "title":options1[i],
-			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-          });	
-} */	
 
-console.log("option:"+arry1);
+arry1.push({"content_type":"text", "title":options1[i], "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"});	
+
+}	
+
+console.log("option:"+JSON.stringify(arry1));
  
   messageData = {	  
    "text": text,
-    "quick_replies": arry1
+    "quick_replies": JSON.stringify(arry1)
 	/* [
       {
         "content_type":"text",
