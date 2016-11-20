@@ -170,7 +170,10 @@ sendMessage(mobile, name, text1, res);
 function sendTextMessage(sender, options, text, res) {
 if(options)
 {
-var arry1 = [{
+var options1 = options.split(",");
+
+var arry1 = [
+			{
 			"content_type":"text",
             "title":"option1",
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
@@ -179,11 +182,10 @@ var arry1 = [{
 			"content_type":"text",
             "title":"option2",
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-          }];
+          }
+		  ];
 
 //var options1 = [];
-
-var options1 = options.split(",");
 
 /* for(var i=0; i<options1.length; i++) { 
 
