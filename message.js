@@ -168,6 +168,7 @@ sendMessage(mobile, name, text1, res);
 //require("./modules/sendfbmsg");
 
 function sendTextMessage(sender, options, text, res) {
+
 if(options)
 {
 var options1 = options.split(",");
@@ -180,36 +181,23 @@ arry1.push({
 	"content_type":"text",
 	"title":options1[i],
 	"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-	})	
+	});
 
 }	
 
-//console.log("option:"+JSON.stringify(arry1));
+console.log("option:"+JSON.stringify(arry1));
  
   messageData = {	  
    "text": text,
     "quick_replies": arry1
-	/* [
-      {
-        "content_type":"text",
-        "title": options[0],
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
-      {
-        "content_type":"text",
-        "title": options[1],
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]  */	 
    } 
-//console.log("message:"+JSON.stringify(messageData)); 
-  }
-  else
-  {
-  messageData = {	   
-	"text": text 
-     }	
-  }
+}
+else
+{
+messageData = {	   
+"text": text 
+ }	
+}
   
    request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
