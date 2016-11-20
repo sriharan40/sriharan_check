@@ -183,11 +183,9 @@ arry1.push({
 	"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
 	});
 
-}	
-
-console.log("option:"+JSON.stringify(arry1));
+}
  
-  messageData = {	  
+messageData = {	  
    "text": text,
     "quick_replies": arry1
    } 
