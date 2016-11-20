@@ -202,7 +202,7 @@ console.log("option:"+JSON.stringify(arry1));
     ]  */	 
    }
    
-console.log("message:"+messageData); 
+console.log("message:"+JSON.stringify(messageData)); 
   }
   else
   {
