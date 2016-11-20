@@ -44,7 +44,7 @@ var caller_token = req.params.token;
 
 var crypto = require('crypto');
 var algorithm = 'aes-256-ctr';
-var password = 'd6F3Efeqrts';
+var password = process.env.encrypt_pass;
 
 function decrypt(text){
   var decipher = crypto.createDecipher(algorithm,password)
@@ -85,8 +85,8 @@ if(sender)
 {
 var db_config = {
     host: 'us-cdbr-iron-east-04.cleardb.net',
-    user: 'b213965cc9ad75',
-    password: '9c81ac99',
+    user: process.env.db_user,
+    password: process.env.db_pass,
     database: 'heroku_a0067bd7c868fc0'
 };
 
@@ -165,14 +165,28 @@ if(mobile)
 sendMessage(mobile, name, text1, res);
 }
 
-require("./modules/sendfbmsg");
+//require("./modules/sendfbmsg");
 
 function sendTextMessage(sender, options, text, res) {
- if(options)
-  {
+if(options)
+{
+var arr1 = [];
+	  
+foreach(options as option)
+{
+  arr1.push({
+			"content_type":"text",
+            "title":option,
+			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+          })	
+}	
+
+console.log("option:"+arr1);
+  
   messageData = {	  
    "text": text,
-    "quick_replies":[
+    "quick_replies": arr1
+	/* [
       {
         "content_type":"text",
         "title": options[0],
@@ -183,7 +197,7 @@ function sendTextMessage(sender, options, text, res) {
         "title": options[1],
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
-    ]	
+    ]  */	 
    }
   }
   else
