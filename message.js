@@ -172,9 +172,11 @@ if(options)
 {
 var arr1 = [];
 
-var options[] = options.split(',');
+var options1 = [];
 
-for(var i=0; i<options.length; i++) { 
+var options1 = options.split(',');
+
+for(var i=0; i<options1.length; i++) { 
   arr1.push({
 			"content_type":"text",
             "title":options[i],
