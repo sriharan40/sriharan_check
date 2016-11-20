@@ -171,8 +171,8 @@ function sendTextMessage(sender, options, text, res) {
 if(options)
 {
 var arr1 = [];
-	  
-for (var i in options) {
+
+for(var i=0; i<options.length; i++) { 
   arr1.push({
 			"content_type":"text",
             "title":options[i],
@@ -180,7 +180,7 @@ for (var i in options) {
           })	
 }	
 
-console.log("option:"+arr1);
+console.log("option:"+options);
   
   messageData = {	  
    "text": text,
