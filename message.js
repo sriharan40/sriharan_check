@@ -172,6 +172,8 @@ if(options)
 {
 var arr1 = [];
 
+var options[] = options.split(',');
+
 for(var i=0; i<options.length; i++) { 
   arr1.push({
 			"content_type":"text",
@@ -180,7 +182,7 @@ for(var i=0; i<options.length; i++) {
           })	
 }	
 
-console.log("option:"+options);
+console.log("option:"+arr1);
   
   messageData = {	  
    "text": text,
