@@ -177,14 +177,15 @@ var arr1 = [];
 var options1 = options.split(",");
 
 for(var i=0; i<options1.length; i++) { 
+
+console.log("option:"+options1[i]);
+
   arr1.push({
 			"content_type":"text",
             "title":options1[i],
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
           })	
 }	
-
-console.log("option:"+arr1);
   
   messageData = {	  
    "text": text,
