@@ -175,7 +175,7 @@ var arr1 = [];
 for (var i in options) {
   arr1.push({
 			"content_type":"text",
-            "title":option[i],
+            "title":options[i],
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
           })	
 }	
