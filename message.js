@@ -172,11 +172,10 @@ if(options)
 {
 var arr1 = [];
 	  
-foreach(options as option)
-{
+for (var i in options) {
   arr1.push({
 			"content_type":"text",
-            "title":option,
+            "title":option[i],
 			"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
           })	
 }	
