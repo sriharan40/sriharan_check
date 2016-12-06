@@ -72,6 +72,8 @@ var text1 = ("" + text1).replace(/%20/g, ' ');
 
 var text1 = ("" + text1).replace(/%3F/g, '?');
 	
+var text1 = ("" + text1).replace(/%3D/g, '?');
+	
 var text = text1;
 	
 if(text = "" || text == undefined)
