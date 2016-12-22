@@ -278,7 +278,7 @@ messageData = {
         "elements":[
           {
             "title":"Payment Successful.",
-            "subtitle":"Payment was completed sucessfully."
+            "subtitle":"Payment was completed sucessfully.",
             "quantity":1,
             "price":1,
             "currency":"USD",
