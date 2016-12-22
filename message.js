@@ -277,8 +277,8 @@ messageData = {
         "timestamp":"1428444852", 
         "elements":[
           {
-            "title":"Congratulations for the Payment",
-            "subtitle":"Payment Success",
+            "title":"Payment Successful.",
+            "subtitle":"Payment was completed sucessfully."
             "quantity":1,
             "price":1,
             "currency":"USD",
@@ -351,12 +351,12 @@ messageData1 = {
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Yes",
+        "title":"Notify Me in future !"
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
       },
       {
         "content_type":"text",
-        "title":"No",
+        "title":"Do not Notify me here!"
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
