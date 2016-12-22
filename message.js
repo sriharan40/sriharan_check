@@ -281,7 +281,7 @@ messageData = {
             "subtitle":"Payment was completed sucessfully.",
             "quantity":1,
             "price":1,
-            "currency":"USD",
+            "currency":"USD"
           }
 		 ],
         "summary":{
