@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var request = require("request");
 var util = require("util");
 var http = require('http');
+var plivo = require('plivo');
 
 var params=function(req){
   var q=req.url.split('?'),result={};
@@ -460,34 +461,65 @@ var caller = "";
 
 if(caller)
 {	
-	var accountSid = process.env.accountSid;
-	var authToken = process.env.authToken;
 
-	var client = require('twilio')(accountSid, authToken);
+// Load the Plivo module
 
-	client.sms.messages.create({
-	    to: mobile,
-	    from: '+18312165009',
-	    body: text 
+// Plivo Credentials 
+
+var accountSid = process.env.accountSid;
+var authToken = process.env.authToken;
+
+var p = plivo.RestAPI({
+  authId: accountSid,
+  authToken: authToken
+});		
+
+var params = {
+    'src': '9999999999',
+    'dst' : mobile,
+    'text' : text
+};
+
+var promise = new Promise(function (resolve, reject) {
+
+p.send_message(params, function (status, response) {    
+    if (!response) reject(response);
+	else
+	resolve(response)	
+	console.log('Status: ', status);
+    console.log('API Response:\n', response);
+});
+
+});
+
+//	var accountSid = process.env.accountSid;
+//	var authToken = process.env.authToken;
+
+//	var client = require('twilio')(accountSid, authToken);
+
+//	client.sms.messages.create({
+//	    to: mobile,
+//	    from: '+18312165009',
+//	    body: text 
 //	    body: 'Click Http://m.me/himantmusic to know your outstanding balance and for support type Hi' 
-	}, function(error, message) {
+//	}, function(error, message) {
 	    // The HTTP request to Twilio will run asynchronously. This callback
 	    // function will be called when a response is received from Twilio
 	    // The "error" variable will contain error information, if any.
 	    // If the request was successful, this value will be "falsy"
-	    if (!error) {
+//	    if (!error) {
 		// The second argument to the callback will contain the information
 		// sent back by Twilio for the request. In this case, it is the
 		// information about the text messsage you just sent:
-		console.log('Success! The SID for this SMS message is:');
-		console.log(message.sid);
+//		console.log('Success! The SID for this SMS message is:');
+//		console.log(message.sid);
 
-		console.log('Message sent on:');
-		console.log(message.dateCreated);
-	    } else {
-		console.log('Oops! There was an error.');
-	    }
-	});
+//		console.log('Message sent on:');
+//		console.log(message.dateCreated);
+//	    } else {
+//		console.log('Oops! There was an error.');
+//	    }
+//	});
 	
    res.statusCode = 200;
 
